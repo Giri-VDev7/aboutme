@@ -13,15 +13,14 @@
   <meta property="og:type" content="website">
 
   <script>
-    /* Set theme before paint to avoid flash */
+    /* Set theme before paint to avoid flash Dark by default; respects saved preference. */
     (function() {
       try {
         var t = localStorage.getItem('theme');
-        if (t === 'light' || t === 'dark') {
-          document.documentElement.setAttribute('data-theme', t);
-        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        if (t === 'light') {
           document.documentElement.setAttribute('data-theme', 'light');
         }
+        /* Otherwise: dark by default (no attribute needed) */
       } catch (e) {}
     })();
   </script>
